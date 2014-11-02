@@ -3,7 +3,10 @@ Workspace::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :user
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  
+  get 'about' => 'static_pages#about', as: :about
+  get 'contact' => 'static_pages#contact', as: :contact
+  root 'static_pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
