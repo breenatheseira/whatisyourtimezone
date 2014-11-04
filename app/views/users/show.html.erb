@@ -1,0 +1,8 @@
+<h1>Your Profile</h1>
+
+<%= form_for(@user) do |f| %>
+
+<%= f.label :name %>: <%= @user.name %>
+<br/>
+<%= f.label :email %>: <%= @user.email %>
+<% end %>

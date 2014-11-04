@@ -14,11 +14,15 @@ class UsersController < ApplicationController
         
         if @user.save
             #success message; be sure to add in confirmation email next time.
-            redirect_to user_index_path, notice: "You have successfully signed up!"
+            redirect_to users_path, notice: "You have successfully signed up!"
         else
             #invalid input message
             redirect_to new_user_path, alert: "Invalid input! Please try again!"
         end
+    end
+    
+    def show
+        @user = User.find(params[:id])
     end
     
     private

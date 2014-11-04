@@ -1,12 +1,16 @@
 Workspace::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :user
+  resources :users
   # You can have the root of your site routed with "root"
   
   get 'about' => 'static_pages#about', as: :about
   get 'contact' => 'static_pages#contact', as: :contact
-  post 'user/new' => 'user#create'
+  post 'users/new' => 'users#create'
+  
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   
   root 'static_pages#index'
 
