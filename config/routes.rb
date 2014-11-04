@@ -6,6 +6,8 @@ Workspace::Application.routes.draw do
   
   get 'about' => 'static_pages#about', as: :about
   get 'contact' => 'static_pages#contact', as: :contact
+  post 'user/new' => 'user#create'
+  
   root 'static_pages#index'
 
   # Example of regular route:

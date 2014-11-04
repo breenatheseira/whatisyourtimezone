@@ -1,0 +1,10 @@
+<h1>List of Registered Users:</h1>
+
+<% @user.each do |user| %>
+<ul>
+    <li><%= user.name %></li>
+</ul>
+<% end %>
+<p> 
+    Don't see yourself on the list? <%= link_to "Register", new_user_path %> today!
+</p>

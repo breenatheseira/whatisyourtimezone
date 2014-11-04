@@ -6,25 +6,25 @@
     <%= form_for(:user, url: new_user_path) do |f| %>
     
     <div class="form-group">    
-        <%= f.label :name %>
+        <%= f.label "Name: " %>
         <%= f.text_field :name, class: 'form-control' %>
     </div>
     
     <div class="form-group">    
-        <%= f.label :email %>
+        <%= f.label "Email: " %>
         <%= f.text_field :email, class: 'form-control' %>
     </div>
     
     <div class="form-group">    
-        <%= f.label :password %>
+        <%= f.label "Password: " %>
         <%= f.text_field :password, class: 'form-control' %>
     </div>
     
     <div class="form-group">    
-        <%= f.label :password_confirmation %>
+        <%= f.label "Confirm Password: " %>
         <%= f.text_field :password_confirmation, class:'form-control' %>
     </div>
-        <%= f.submit 'Create My Account', class:'btn btn-info' %>
+        <%= f.submit 'Sign Me Up NOW!', class:'btn btn-info' %>
     <% end %>
     </div>
     
