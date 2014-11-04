@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Users < ActiveRecord::Base
     has_secure_password
     
     validates :name, presence: true
