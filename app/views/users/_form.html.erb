@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <%= form_for(@user) do |f| %>
-=======
-<%= form_for(:user) do |f| %>
->>>>>>> EditProfile
 
 <div class="form-group">    
     <%= f.label "Name: " %>
@@ -26,7 +22,7 @@
 
     <% if params[:action] == 'edit' %>
         <% #next time, put xxx_attributes in order to allow successfully saving child associations %>
-        <%= f.fields_for :profile_attributes do |p| %>
+        <%= f.fields_for :profile_attributes, @user.profile do |p| %>
         <div class="form-group">    
             <%= p.label "Birthdate: " %>
             <%= p.text_field :birthdate, class:'form-control' %>
@@ -45,7 +41,5 @@
         <div class="form-group">  
             <%= f.submit 'Sign Me Up NOW!', class:'btn btn-info' %>
         </div>    
-        
     <% end %>
-    
 <% end %>
