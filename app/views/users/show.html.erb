@@ -2,7 +2,13 @@
 
 <%= form_for(@user) do |f| %>
 
-<%= f.label :name %>: <%= @user.name %>
-<br/>
-<%= f.label :email %>: <%= @user.email %>
+    <%= f.label :name %>: <%= @user.name %>
+    <br/>
+    <%= f.label :email %>: <%= @user.email %>
+    <br/>
+        <%= f.fields_for :profile do |p| %>
+            <%= p.label :birthdate %>: <%= @user.profile.birthdate %>
+            <br/>
+            <%= p.label :location %>: <%= @user.profile.location %>
+        <% end %>
 <% end %>

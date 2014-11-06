@@ -1,4 +1,4 @@
-<%= form_for(:user, url: new_user_path) do |f| %>
+<%= form_for(:user) do |f| %>
 
 <div class="form-group">    
     <%= f.label "Name: " %>
@@ -19,7 +19,29 @@
     <%= f.label "Confirm Password: " %>
     <%= f.text_field :password_confirmation, class:'form-control' %>
 </div>
-    <%= f.submit 'Sign Me Up NOW!', class:'btn btn-info' %>
-</div>    
 
+    <% if params[:action] == 'edit' %>
+    
+        <%= f.fields_for :profile do |p_form| %>
+        <div class="form-group">    
+            <%= p_form.label "Birthdate: " %>
+            <%= p_form.text_field :birthdate, class:'form-control' %>
+        </div>    
+        
+        <div class="form-group">    
+            <%= p_form.label "Location: " %>
+            <%= p_form.text_field :location, class:'form-control' %>
+        </div>    
+        <% end %>
+
+        <%= f.submit 'Submit!', class:'btn btn-info' %>
+        
+    <% else %>
+    
+        <div class="form-group">  
+            <%= f.submit 'Sign Me Up NOW!', class:'btn btn-info' %>
+        </div>    
+        
+    <% end %>
+    
 <% end %>
