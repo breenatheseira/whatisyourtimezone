@@ -12,7 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20141104080253) do
-
+  # in order to find out why rollback happened in console due to error: User.errors.full_messages
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
