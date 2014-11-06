@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    
+    include SessionsHelper
+    
     def index
         @user = User.all()
     end
@@ -6,6 +9,8 @@ class UsersController < ApplicationController
     #for new user (sign up), but GET action
     def new
         @user = User.new()
+        #in order to ensure that the profile and user is tied together
+        @user.build_profile
     end
     
     #for new user (sign up), but POST action
@@ -14,10 +19,11 @@ class UsersController < ApplicationController
         
         if @user.save
             #success message; be sure to add in confirmation email next time.
-            redirect_to users_path, notice: "You have successfully signed up!"
+             flash[:notice] = "You have successfully signed up!" 
+            redirect_to user_path(@user)
         else
             #invalid input message
-            redirect_to new_user_path, alert: "Invalid input! Please try again!"
+            render 'new', alert: "Invalid input! Please try again!"
         end
     end
     
@@ -25,9 +31,23 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
     
+    def edit
+        @user = User.find(params[:id])
+    end
+    
+    def update
+        @user = User.find(params[:id])
+        
+        if @user.update_attributes(user_params)
+            redirect_to user_path, notice: "Profile Details Updated Successfully! "
+        else
+            redirect_to edit_user_path(@user), alert: "Oh snap! Invalid input!"
+        end
+    end
+    
     private
     
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, profile_attributes: [:birthdate, :location])
     end
 end

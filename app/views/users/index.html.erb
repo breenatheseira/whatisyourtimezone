@@ -6,5 +6,10 @@
 </ul>
 <% end %>
 <p> 
+
+<% if logged_in? %>
+    Yay! You're on this list! :D
+<% else %>
     Don't see yourself on the list? <%= link_to "Register", new_user_path %> today!
+<% end %>
 </p>

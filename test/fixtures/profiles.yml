@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birthdate: 
+  location: 
+  age: 1
+
+two:
+  birthdate: 
+  location: 
+  age: 1
