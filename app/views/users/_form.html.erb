@@ -22,15 +22,15 @@
 
     <% if params[:action] == 'edit' %>
     
-        <%= f.fields_for :profile do |p_form| %>
+        <%= f.fields_for :profile_attributes do |p| %>
         <div class="form-group">    
-            <%= p_form.label "Birthdate: " %>
-            <%= p_form.text_field :birthdate, class:'form-control' %>
+            <%= p.label "Birthdate: " %>
+            <%= p.text_field :birthdate, class:'form-control' %>
         </div>    
         
         <div class="form-group">    
-            <%= p_form.label "Location: " %>
-            <%= p_form.text_field :location, class:'form-control' %>
+            <%= p.label "Location: " %>
+            <%= p.text_field :location, class:'form-control' %>
         </div>    
         <% end %>
 
