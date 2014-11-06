@@ -21,7 +21,7 @@
 </div>
 
     <% if params[:action] == 'edit' %>
-    
+        <% #next time, put xxx_attributes in order to allow successfully saving child associations %>
         <%= f.fields_for :profile_attributes do |p| %>
         <div class="form-group">    
             <%= p.label "Birthdate: " %>
