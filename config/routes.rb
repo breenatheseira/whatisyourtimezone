@@ -3,9 +3,10 @@ Workspace::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   
   post 'users/:id/edit' => 'users#update'
-  
+
   resources :users do
     resources :profile
+    resources :timezones
   end
   # You can have the root of your site routed with "root"
   

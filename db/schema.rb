@@ -11,8 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105125436) do
-# in order to find out why rollback happened in console due to error: User.errors.full_messages
+ActiveRecord::Schema.define(version: 20141106184942) do
+
   create_table "profiles", force: true do |t|
     t.date     "birthdate"
     t.string   "location"
@@ -20,8 +20,17 @@ ActiveRecord::Schema.define(version: 20141105125436) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "timezones", force: true do |t|
+    t.string   "zone"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timezones", ["user_id"], name: "index_timezones_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
