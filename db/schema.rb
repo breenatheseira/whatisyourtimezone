@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141106184942) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "timezones", force: true do |t|
-    t.string   "zone"
+    t.string   "time_zone"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

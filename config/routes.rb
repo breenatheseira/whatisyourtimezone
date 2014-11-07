@@ -3,16 +3,17 @@ Workspace::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   
   post 'users/:id/edit' => 'users#update'
-
+  post 'users/new' => 'users#create'
+  
   resources :users do
-    resources :profile
+#    resources :profile
     resources :timezones
   end
   # You can have the root of your site routed with "root"
   
   get 'about' => 'static_pages#about', as: :about
   get 'contact' => 'static_pages#contact', as: :contact
-  post 'users/new' => 'users#create'
+  
   
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

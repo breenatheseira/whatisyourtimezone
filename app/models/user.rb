@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     validates :password, length: { minimum: 6 }, allow_blank: true
     
     has_one :profile
-    has_many :timezone
+    has_many :timezone, inverse_of: :user
     accepts_nested_attributes_for :timezone, update_only: true, allow_destroy: true
     accepts_nested_attributes_for :profile, update_only: true
     
