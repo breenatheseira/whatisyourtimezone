@@ -77,4 +77,15 @@ Workspace::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+config.action_mailer.default_url_options = { host: 'whatisyourtimezone-breena.herokuapp.com' }  
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :user_name => ENV['MAILTRAPUSERNAME'],
+  :password => ENV['MAILTRAPPASSWORD'],
+  :address => 'mailtrap.io',
+  :domain => 'mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+}    
 end

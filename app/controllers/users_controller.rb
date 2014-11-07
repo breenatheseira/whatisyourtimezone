@@ -21,7 +21,7 @@ class UsersController < ApplicationController
             #success message; be sure to add in confirmation email next time.
             UserMailer.welcome_email(@user).deliver
             flash[:notice] = "You have successfully signed up!" 
-            redirect_to user_path(@user)
+            redirect_to root_path
         else
             #invalid input message
             # wont use redirect_to, so that it will retan
