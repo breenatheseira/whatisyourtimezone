@@ -5,7 +5,7 @@ class TimezonesController < ApplicationController
     def index
         @user = User.find(params[:user_id])
         #I want to show a list of all the timezones registered with the User
-        @timezone = @user.timezone.find(params[:user_id])
+        @timezone = @user.timezone
         #Timezone.where("user_id LIKE :term ", term: :user_id)
     end 
     

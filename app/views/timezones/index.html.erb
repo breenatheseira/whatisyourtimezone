@@ -1,9 +1,7 @@
 <h1>Your Preferred Timezones</h1>
 
-<%= form_for(@timezone) do |t| %>
-    <% @timezone.each do |t| %>
-        <ul>
-            <li><%= t.time_zone %></li>
-        </ul>    
-    <% end %>
+<% @timezone.each do |t| %>
+    <ul>
+        <li><%= t.time_zone %></li>
+    </ul>    
 <% end %>
