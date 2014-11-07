@@ -4,6 +4,13 @@ class TimezonesController < ApplicationController
     
     def index
         @user = User.find(params[:user_id])
+        #I want to show a list of all the timezones registered with the User
+        @timezone = @user.timezone.find(params[:user_id])
+        #Timezone.where("user_id LIKE :term ", term: :user_id)
+    end 
+    
+    def new
+        @user = User.find(params[:user_id])
         @timezone = Timezone.new()
         @timezone = @user.timezone.build
     end
@@ -11,7 +18,6 @@ class TimezonesController < ApplicationController
     def create
         @user = User.find(params[:user_id])
         @timezone = @user.timezone.create(timezone_params)
-        #@timezone = Timezone.new(timezone_params)
         
         if @timezone.save
             flash[:success] = "You have successfully added #{@timezone.time_zone}!"
@@ -20,9 +26,6 @@ class TimezonesController < ApplicationController
             flash[:danger] = "Oh snap! Something wrong had happened!"
             render 'new'
         end
-    end
-    
-    def new
     end
     
     def show

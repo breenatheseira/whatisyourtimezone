@@ -19,10 +19,12 @@ class UsersController < ApplicationController
         
         if @user.save
             #success message; be sure to add in confirmation email next time.
-             flash[:notice] = "You have successfully signed up!" 
+            UserMailer.welcome_email(@user).deliver
+            flash[:notice] = "You have successfully signed up!" 
             redirect_to user_path(@user)
         else
             #invalid input message
+            # wont use redirect_to, so that it will retan
             render 'new', alert: "Invalid input! Please try again!"
         end
     end

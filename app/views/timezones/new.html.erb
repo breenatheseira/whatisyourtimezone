@@ -1,0 +1,17 @@
+<h1>All Timezones</h1>
+
+<p>
+    Here's the whole list of all the timezones that we have and are keeping track of.
+    Select one and submit it to save it!
+    <%= form_for @timezone, url: {action: "create"} do |f| %>
+    <div class="form-group">    
+        <%= f.time_zone_select(:time_zone) %>
+    </div>   
+    <div class="form-group">    
+        <% f.text_field :user_id %>
+    </div>        
+    <div class="form-group">    
+        <%= f.submit "Add this Timezone!", class: 'btn btn-info' %>
+    </div>       
+    <% end %>
+</p>

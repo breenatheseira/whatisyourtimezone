@@ -1,26 +1,27 @@
 <%= form_for(@user) do |f| %>
 
 <div class="form-group">    
-    <%= f.label "Name: " %>
+    <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 </div>    
 
 <div class="form-group">    
-    <%= f.label "Email: " %>
+    <%= f.label :email %>
     <%= f.text_field :email, class: 'form-control' %>
 </div>
 
 <div class="form-group">    
-    <%= f.label "Password: " %>
+    <%= f.label :password %>
     <%= f.text_field :password, class: 'form-control' %>
 </div>
 
 <div class="form-group">    
-    <%= f.label "Confirm Password: " %>
+    <%= f.label :password_confirmation %>
     <%= f.text_field :password_confirmation, class:'form-control' %>
 </div>
 
     <% if params[:action] == 'edit' %>
+        <% #if @user.new_record? %>
         <% #next time, put xxx_attributes in order to allow successfully saving child associations %>
         <%= f.fields_for :profile_attributes, @user.profile do |p| %>
         <div class="form-group">    

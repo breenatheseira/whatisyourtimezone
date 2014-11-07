@@ -5,6 +5,7 @@ Workspace::Application.routes.draw do
   post 'users/:id/edit' => 'users#update'
   post 'users/new' => 'users#create'
   
+  post 'user/:id/new' => 'users#create'
   resources :users do
 #    resources :profile
     resources :timezones
