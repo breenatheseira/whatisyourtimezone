@@ -43,6 +43,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+# For Heroku deployment purposes
+gem 'rails_12factor', group: :production
+gem 'pg'
 # Use unicorn as the app server
 # gem 'unicorn'
 
